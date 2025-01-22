@@ -1,7 +1,7 @@
 # hydrogen-telegram-bot
 This is a Telegram bot that I use for every purpose I can think of.
 
-_本项目 90% 以上的代码（java,xml,properties）内容都是通义灵码的 “AI 程序员” 生成的。_
+_本项目第一个 commit 当中 90% 以上的代码（java,xml,properties）内容都是通义灵码的 “AI 程序员” 生成的。_
 
 ![](doc/imgs/1.png)
 
