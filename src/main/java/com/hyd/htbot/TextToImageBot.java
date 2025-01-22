@@ -36,6 +36,9 @@ public class TextToImageBot implements ApplicationListener<ContextRefreshedEvent
         TelegramBot bot = new TelegramBot(telegramConfig.getBot().getToken());
         bot.setUpdatesListener(updates -> {
             for (Update update : updates) {
+                if (update.message() == null) {
+                    continue;
+                }
                 try {
                     // 处理接收到的消息
                     String messageText = update.message().text();
