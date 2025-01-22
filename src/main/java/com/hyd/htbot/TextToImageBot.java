@@ -24,8 +24,6 @@ public class TextToImageBot implements ApplicationListener<ContextRefreshedEvent
     private final TelegramConfig telegramConfig;
     // 新增字段: 最大行宽
     private final int maxLineWidth = 700;
-    // 新增字段: 字体大小
-    private final int fontSize = 30;
 
     @Autowired
     private TextBoundaryService textBoundaryService;
@@ -95,10 +93,11 @@ public class TextToImageBot implements ApplicationListener<ContextRefreshedEvent
         String text = parts[0].trim();
         String colorStr = parts.length > 1 ? parts[1].trim() : "282828";
         String bgColorStr = parts.length > 2 ? parts[2].trim() : "FFFFFF";
-        String fontName = parts.length > 3 ? parts[3].trim() : "Default";
+        String fontName = parts.length > 3 ? parts[3].trim() : telegramConfig.getFont().getDefaultFontName();
 
         Color textColor = toColor(colorStr);
         Color bgColor = toColor(bgColorStr);
+        int fontSize = telegramConfig.getFont().getDefaultFontSize();
         Font font = new Font(fontName, Font.PLAIN, fontSize);
 
         // 创建 TextBoundary 对象并设置相关属性
